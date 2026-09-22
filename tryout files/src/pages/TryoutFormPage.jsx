@@ -110,12 +110,20 @@ export default function TryoutFormPage() {
       </header>
 
       <section className="hero">
-        <div className="shell hero-inner">
-          <p className="eyebrow">Tryout Day</p>
-          <h2>Evaluate the player.<span>Build the roster.</span></h2>
-          <p>Complete one evaluation for each player. Focus on competitive performance, communication, teamwork, game knowledge, and coachability.</p>
-        </div>
-      </section>
+  <div className="shell hero-inner">
+    <p className="eyebrow">San Jac Ravens eSports Tryouts</p>
+
+    <h2>
+      <span>Evaluation Form</span>
+    </h2>
+
+    <p>
+      Use this form to evaluate each player during tryouts. Rate their
+      performance, communication, teamwork, game knowledge, adaptability,
+      and overall fit for the team.
+    </p>
+  </div>
+</section>
 
       <div className="shell content">
         {status && (
