@@ -224,7 +224,6 @@ export default function TryoutFormPage() {
           <p className="eyebrow">San Jac Ravens Esports Tryouts</p>
 
           <h2>
-            Captain Eval Form
             <span>Evaluation Form</span>
           </h2>
 
