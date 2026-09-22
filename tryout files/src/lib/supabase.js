@@ -1,16 +1,36 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Browser-safe Supabase connection values.
-// Never place a service_role or secret key in this frontend.
-const url = import.meta.env.VITE_SUPABASE_URL;
-const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
+/*
+|--------------------------------------------------------------------------
+| Supabase Client
+|--------------------------------------------------------------------------
+|
+| The Supabase project URL is public/browser-safe.
+| The publishable key still comes from GitHub Actions.
+|
+|--------------------------------------------------------------------------
+*/
 
-export const isSupabaseConfigured = Boolean(url && key);
+const supabaseUrl = 'https://rrqsaoegsscwylumjxca.supabase.co';
+
+const supabaseKey = (
+  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+).trim();
+
+export const isSupabaseConfigured = Boolean(
+  supabaseUrl &&
+  supabaseKey &&
+  supabaseKey.startsWith('sb_publishable_')
+);
 
 export const supabase = isSupabaseConfigured
-  ? createClient(url, key)
+  ? createClient(supabaseUrl, supabaseKey)
   : null;
 
 export function describeError(error) {
-  return error?.message || error?.error_description || 'Something went wrong.';
+  return (
+    error?.message ||
+    error?.error_description ||
+    'Something went wrong. Please try again.'
+  );
 }
